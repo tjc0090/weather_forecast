@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>7 Day Forecast</title>
+	</head>
+	<body>
+		<div style="width:500px; height:100px; background-color:red">Thursday's high is 66.34 with a low of 60.78,
+ you should expect sky is clear</div>
+		<div style="width:500px; height:100px; background-color:cyan">Friday's high is 82.2 with a low of 53.08,
+ you should expect sky is clear</div>
+		<div style="width:500px; height:100px; background-color:red">Saturday's high is 82.02 with a low of 58.05,
+ you should expect sky is clear</div>
+		<div style="width:500px; height:100px; background-color:cyan">Sunday's high is 81.28 with a low of 60.93,
+ you should expect light rain</div>
+		<div style="width:500px; height:100px; background-color:red">Monday's high is 81.77 with a low of 67.05,
+ you should expect light rain</div>
+		<div style="width:500px; height:100px; background-color:cyan">Tuesday's high is 79.52 with a low of 69.21,
+ you should expect moderate rain</div>
+		<div style="width:500px; height:100px; background-color:red">Wednesday's high is 79.68 with a low of 70.14,
+ you should expect moderate rain</div>
+	</body>
+</html>
