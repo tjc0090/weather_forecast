@@ -1,12 +1,13 @@
 __author__ = 'Travis'
 
-# API ID = this is being kept in a separate file for security reasons
+# API ID = this is being kept in a separate file for security reasons 387eeb8912c7f54786c3ec455378da5b
 # correct_url = 'http://api.openweathermap.org/data/2.5/weather?q=Austin,tx&APPID=
 import requests
 import json
 from datetime import date, datetime
 
-target_url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=Austin,tx&cnt=7&units=imperial&mode=json&APPID='
+city = raw_input("Get forecast for which city/state? Use the format: City,st. > ")
+target_url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&cnt=7&units=imperial&mode=json&APPID=387eeb8912c7f54786c3ec455378da5b'
 response = requests.get(target_url)
 weather = json.loads(response.text)
 
@@ -18,6 +19,7 @@ def high_temp(weather_data):
     :type weather_data: dict
     :return: highest temp for the day
     """
+
     weekly = []
     x = 0
     # loop iterates through each day and appends highest value to list by sorting by values in the temp dict.
@@ -35,6 +37,7 @@ def low_temp(weather_data):
     :param weather_data:
     :return: lowest temp for the day
     """
+
     weekly = []
     x = 0
     # loop iterates through each day and appends lowest value to list by sorting by values in the temp dict.
@@ -45,8 +48,6 @@ def low_temp(weather_data):
     return weekly
 
 
-# str(days[current_day]) + "'s high is" + str(high[x]) + "with a low of" + str(low[x]), "and you should expect" + str(
-# weather_data[u'list'][x][u'weather'][0][u'description'])  # <-- conditions
 def forecast(weather_data):
     """
     main function to create display data in the form of a list, each day is 1 entry in the list.
@@ -58,6 +59,7 @@ def forecast(weather_data):
     :param weather_data:
     :return: display data for the week
     """
+
     current_day = date.weekday(datetime.today())  # returns an integer for today's day: Mon == 0 and Sun == 6
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     display = []
@@ -78,6 +80,7 @@ def forecast(weather_data):
 
 def forecast_file(weather_data):
     """writes display data to outside text file for easy access"""
+
     weather_forecast = forecast(weather_data)  # gets list containing each day's forecast
     txt = open('weather_forecast.txt', 'w')
     for item in weather_forecast:
@@ -87,30 +90,32 @@ def forecast_file(weather_data):
 
 
 def html_forecast(weather_data):
+    """writes data in html format for display on web page or in email newsletter"""
+
     daily_forecast = forecast(weather_data)
     html = """<!DOCTYPE html>
 <html>
-	<head>
+    <head>
     <style>
-        .forecast {
+        .forecast {{
             margin-left: auto;
             margin-right: auto;
             width: 500px;
             height: 100px;
             font-family:Helvetica;
             background: -webkit-linear-gradient(right, yellow, white);
-        }
-		<title>7 Day Forecast</title>
-	</head>
-	<body>
-		<div class="forecast">{a}</div>
-		<div class="forecast">{b}</div>
-		<div class="forecast">{c}</div>
-		<div class="forecast">{d}</div>
-		<div class="forecast">{e}</div>
-		<div class="forecast">{f}</div>
-		<div class="forecast">{g}</div>
-	</body>
+        }}
+    <title>7 Day Forecast</title>
+    </head>
+    <body>
+        <div class="forecast">{a}</div>
+        <div class="forecast">{b}</div>
+        <div class="forecast">{c}</div>
+        <div class="forecast">{d}</div>
+        <div class="forecast">{e}</div>
+        <div class="forecast">{f}</div>
+        <div class="forecast">{g}</div>
+    </body>
 </html>""".format(a=daily_forecast[0], b=daily_forecast[1], c=daily_forecast[2], d=daily_forecast[3],
                   e=daily_forecast[4], f=daily_forecast[5], g=daily_forecast[6])
     txt = open('html_weather_forecast.txt', 'w')

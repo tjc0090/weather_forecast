@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>7 Day Forecast</title>
-	</head>
-	<body>
-		<div style="width:500px; height:100px; background-color:red">Thursday's high is 66.34 with a low of 60.78,
- you should expect sky is clear</div>
-		<div style="width:500px; height:100px; background-color:cyan">Friday's high is 82.2 with a low of 53.08,
- you should expect sky is clear</div>
-		<div style="width:500px; height:100px; background-color:red">Saturday's high is 82.02 with a low of 58.05,
- you should expect sky is clear</div>
-		<div style="width:500px; height:100px; background-color:cyan">Sunday's high is 81.28 with a low of 60.93,
+    <head>
+    <style>
+        .forecast {
+            margin-left: auto;
+            margin-right: auto;
+            width: 500px;
+            height: 100px;
+            font-family:Helvetica;
+            background: -webkit-linear-gradient(right, yellow, white);
+        }
+    <title>7 Day Forecast</title>
+    </head>
+    <body>
+        <div class="forecast">Wednesday's high is 85.5 with a low of 75.13,
  you should expect light rain</div>
-		<div style="width:500px; height:100px; background-color:red">Monday's high is 81.77 with a low of 67.05,
+        <div class="forecast">Thursday's high is 79.39 with a low of 72.73,
+ you should expect moderate rain</div>
+        <div class="forecast">Friday's high is 84.81 with a low of 73.24,
  you should expect light rain</div>
-		<div style="width:500px; height:100px; background-color:cyan">Tuesday's high is 79.52 with a low of 69.21,
+        <div class="forecast">Saturday's high is 80.85 with a low of 72.48,
  you should expect moderate rain</div>
-		<div style="width:500px; height:100px; background-color:red">Wednesday's high is 79.68 with a low of 70.14,
+        <div class="forecast">Sunday's high is 79.72 with a low of 69.53,
+ you should expect heavy intensity rain</div>
+        <div class="forecast">Monday's high is 76.01 with a low of 66.24,
  you should expect moderate rain</div>
-	</body>
+        <div class="forecast">Tuesday's high is 82.81 with a low of 65.12,
+ you should expect light rain</div>
+    </body>
 </html>
