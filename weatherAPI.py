@@ -11,9 +11,6 @@ response = requests.get(target_url)
 weather = json.loads(response.text)
 
 
-
-
-
 def high_temp(weather_data):
     """
     gets temps for the day to find the high by comparing
@@ -94,16 +91,25 @@ def html_forecast(weather_data):
     html = """<!DOCTYPE html>
 <html>
 	<head>
+    <style>
+        .forecast {
+            margin-left: auto;
+            margin-right: auto;
+            width: 500px;
+            height: 100px;
+            font-family:Helvetica;
+            background: -webkit-linear-gradient(right, yellow, white);
+        }
 		<title>7 Day Forecast</title>
 	</head>
 	<body>
-		<div style="width:500px; height:100px; background-color:red">{a}</div>
-		<div style="width:500px; height:100px; background-color:cyan">{b}</div>
-		<div style="width:500px; height:100px; background-color:red">{c}</div>
-		<div style="width:500px; height:100px; background-color:cyan">{d}</div>
-		<div style="width:500px; height:100px; background-color:red">{e}</div>
-		<div style="width:500px; height:100px; background-color:cyan">{f}</div>
-		<div style="width:500px; height:100px; background-color:red">{g}</div>
+		<div class="forecast">{a}</div>
+		<div class="forecast">{b}</div>
+		<div class="forecast">{c}</div>
+		<div class="forecast">{d}</div>
+		<div class="forecast">{e}</div>
+		<div class="forecast">{f}</div>
+		<div class="forecast">{g}</div>
 	</body>
 </html>""".format(a=daily_forecast[0], b=daily_forecast[1], c=daily_forecast[2], d=daily_forecast[3],
                   e=daily_forecast[4], f=daily_forecast[5], g=daily_forecast[6])
