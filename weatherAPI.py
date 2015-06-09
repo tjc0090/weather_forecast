@@ -1,13 +1,13 @@
 __author__ = 'Travis'
 
-# API ID = this is being kept in a separate file for security reasons 387eeb8912c7f54786c3ec455378da5b
+# API ID = this is being kept in a separate file for security reasons
 # correct_url = 'http://api.openweathermap.org/data/2.5/weather?q=Austin,tx&APPID=
 import requests
 import json
 from datetime import date, datetime
 
 city = raw_input("Get forecast for which city/state? Use the format: City,st. > ")
-target_url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&cnt=7&units=imperial&mode=json&APPID=387eeb8912c7f54786c3ec455378da5b'
+target_url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&cnt=7&units=imperial&mode=json&APPID='
 response = requests.get(target_url)
 weather = json.loads(response.text)
 
